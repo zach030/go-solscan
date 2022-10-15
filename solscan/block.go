@@ -21,7 +21,7 @@ func (c *Client) GetBlockDetail(blockNumber int) (*model.GetBlockResponse, error
 
 //GetBlockTxs get transactions in one block, max limit 50 records per request
 func (c *Client) GetBlockTxs(blockNumber string, offset, limit int) (*model.GetBlockTxsResponse, error) {
-	if limit > model.BlockTxQueryLimit {
+	if limit > model.TxQueryLimit {
 		return nil, model.ErrExceedQueryLimit
 	}
 	resp := &model.GetBlockTxsResponse{}

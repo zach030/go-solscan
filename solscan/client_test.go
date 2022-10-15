@@ -1,6 +1,7 @@
 package solscan
 
 import (
+	"fmt"
 	"testing"
 	"time"
 
@@ -20,4 +21,11 @@ func TestQueryBlockDetail(t *testing.T) {
 	block, err := client.GetBlockDetail(blockNumber)
 	assert.Nil(t, err)
 	assert.Equal(t, block.Result.BlockHeight, blockHeight)
+}
+
+func TestChainInfo(t *testing.T) {
+	client := New(SetMaxRetryCount(3), SetRetryWaitTime(3*time.Second))
+	chain, err := client.ChainInfo()
+	assert.Nil(t, err)
+	fmt.Printf("%+v", chain)
 }
