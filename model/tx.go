@@ -50,8 +50,8 @@ type GetTxResponse struct {
 	TokenBalanes []struct {
 		Account string `json:"account"`
 		Amount  struct {
-			PostAmount string `json:"postAmount"`
-			PreAmount  string `json:"preAmount"`
+			PostAmount interface{} `json:"postAmount"`
+			PreAmount  interface{} `json:"preAmount"`
 		} `json:"amount"`
 		Token struct {
 			Decimals     int    `json:"decimals"`
